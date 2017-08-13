@@ -10,10 +10,6 @@
 def udacify(text):
     return 'U'+text
 
-
-
-
-
 # Remove the hash, #, from infront of print to test your code.
 
 print(udacify('dacians'))
