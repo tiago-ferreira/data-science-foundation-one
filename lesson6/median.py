@@ -12,40 +12,15 @@ def bigger(a,b):
 
 def biggest(a,b,c):
     return bigger(a,bigger(b,c))
-
-def lower(a,b):
-    if(a < b):
-        return a
-    else:
-        return b
-
-def lowest(a,b,c):
-    return lower(a, lower(b,c))
-
-def has_two_equals(a,b,c):
-    if(a == b):
-        return a
-    elif(b == c):
-        return b
-    else:
-        return -1
     
-
-def median(a,b,c,):
-    result = a
-    lower = lowest(a,b,c)
-    bigger = biggest(a,b,c)
-    if(a == b and b == c):
-        result = a
-    elif(has_two_equals(a,b,c) != -1):
-        result = has_two_equals(a,b,c)
-    elif(a > lower and a < bigger):
-        result = a
-    elif(b > lower and b < bigger):
-            result = b
+def median(a,b,c):
+    big = biggest(a,b,c)
+    if(big == a):
+        return bigger(b,c)
+    if(big == b):
+        return bigger(a,c)
     else:
-            result = c
-    return result
+        return bigger(a,b)
 
 
 print(median(1,2,3))
