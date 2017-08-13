@@ -9,17 +9,13 @@
 ###
 
 def nextDay(year, month, day):
-    if(day == 30):
-        day = 1
-        if(month == 12):
-            month = 1
-            year += 1
-        else:
-            month += 1
+    """Simple version: assume every month has 30 days"""
+    if day < 30:
+        return year, month, day + 1
+    elif month == 12:
+        return year + 1, 1, 1
     else:
-        day +=1
-
-    return year, month, day
+        return year, month + 1, 1
 
 
 print(nextDay(1999,12,30))
