@@ -35,7 +35,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
        and year2/month2/day2. Assumes inputs are valid dates
        in Gregorian calendar, and the first date is not after
        the second."""
-       
+    assert date_is_before(year1, month1, day1, year2, month2, day2), "Houston we've got a problem"
     total_of_days = 0
     #while(transform_date(year1, month1, day1) != transform_date(year2,month2,day2)):
     while date_is_before(year1, month1, day1, year2, month2, day2):
@@ -55,4 +55,5 @@ def test():
         else:
             print("Test case passed!")
 
+daysBetweenDates(2013,1,1,2012,12,20)
 test()
