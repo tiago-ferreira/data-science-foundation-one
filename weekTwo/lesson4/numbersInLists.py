@@ -16,28 +16,12 @@ def numbers_in_lists(string):
     if(size == 0 or size == 1):
         return string
     my_list = []
-    position = 1
-    lastNumber = int(string[0])
-    my_list.append(lastNumber)
-    for i in range(1, size):
-        if(int(string[i]) < lastNumber):
-            try:
-                if(type(my_list[i]) is list):
-                    my_list[position].append(int(string[i]))
-                else:
-                    my_list[i] = []
-                    my_list[i].append(int(string[i]))
-            except IndexError:
-                my_list.append('')
-                my_list[i] = []
-                my_list[i].append(int(string[i]))
-        else:
-            my_list.append(int(string[i]))
-            
-        lastNumber = int(string[i])
-        position = i
-    print(my_list)
-    return my_list
+    to_return = []
+    for i in range(size):
+        my_list.append(int(string[i]))
+    print(my_list) 
+    print(to_return)
+    return to_return
 
 
 #testcases
