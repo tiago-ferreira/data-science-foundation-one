@@ -12,14 +12,17 @@
 #Hint - "int()" turns a string's element into a number
 
 def numbers_in_lists(string):
-    size = len(string)
-    if(size == 0 or size == 1):
-        return string
-    my_list = []
+    aux = 0
     to_return = []
-    for i in range(size):
-        my_list.append(int(string[i]))
-    print(my_list) 
+    for i in [ int(s) for s in string]:
+        if(i > aux):
+            to_return.append(i)
+            aux = i
+        else:
+            if(type(to_return[-1]) is list):
+                to_return[-1].append(i)
+            else:
+                to_return.append([i])
     print(to_return)
     return to_return
 
@@ -28,12 +31,12 @@ def numbers_in_lists(string):
 string = '543987'
 result = [5,[4,3],9,[8,7]]
 print(repr(string), numbers_in_lists(string) == result)
-# string= '987654321'
-# result = [9,[8,7,6,5,4,3,2,1]]
-# print(repr(string), numbers_in_lists(string) == result)
-# string = '455532123266'
-# result = [4, 5, [5, 5, 3, 2, 1, 2, 3, 2], 6, [6]]
-# print(repr(string), numbers_in_lists(string) == result)
-# string = '123456789'
-# result = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-# print(repr(string), numbers_in_lists(string) == result)
+string= '987654321'
+result = [9,[8,7,6,5,4,3,2,1]]
+print(repr(string), numbers_in_lists(string) == result)
+string = '455532123266'
+result = [4, 5, [5, 5, 3, 2, 1, 2, 3, 2], 6, [6]]
+print(repr(string), numbers_in_lists(string) == result)
+string = '123456789'
+result = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(repr(string), numbers_in_lists(string) == result)
