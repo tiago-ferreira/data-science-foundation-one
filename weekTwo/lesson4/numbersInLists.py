@@ -14,7 +14,8 @@
 def numbers_in_lists(string):
     aux = 0
     to_return = []
-    for i in [ int(s) for s in string]:
+    my_list = [int(i) for i in string]
+    for i in my_list:
         if(i > aux):
             to_return.append(i)
             aux = i
@@ -23,7 +24,6 @@ def numbers_in_lists(string):
                 to_return[-1].append(i)
             else:
                 to_return.append([i])
-    print(to_return)
     return to_return
 
 
